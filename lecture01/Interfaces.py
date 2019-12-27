@@ -1,4 +1,5 @@
-### Interfaces in Python
+### Lecture 1. Introduction to Software Design
+### Interfaces in Python. Introduction
 
 import sys
 
@@ -7,13 +8,13 @@ import sys
 ### Coords interface:
 ###
 ###   Returns a list of components in form (componentName, componentValue)
-###   getComponents(self)
+###   get_components(self)
 
 
 ### Option 2: OOP interface
 class ICoords:
-    def getComponents(self):
-        raise NotImplementedError('ICoords::getComponents() not implemented')
+    def get_components(self):
+        raise NotImplementedError('ICoords::get_components() not implemented')
 
 ## Option 3: Abstract base class with ABCMeta & abstractmethod() approach
 # import abc
@@ -21,8 +22,8 @@ class ICoords:
 #
 # class CoordsBase(metaclass = ABCMeta):
 #     @abstractmethod
-#     def getComponents(self):
-#         raise NotImplementedError('getComponents() not implemented')
+#     def get_components(self):
+#         raise NotImplementedError('get_components() not implemented')
 
 ## ------------------------------------------------------------------------- ##
 # Option 1: Duck-typed interface implemented
@@ -33,7 +34,7 @@ class SphericalCoords:
         self.azimuthAngle = azmth
 
     # Duck-typed interface implemented.
-    def getComponents(self):
+    def get_components(self):
         return [ ('distance', self.distance)
                , ('polarAngle', self.polarAngle)
                , ('azimuthAngle', self.azimuthAngle)
@@ -45,7 +46,7 @@ class HorizontalCoords(ICoords):
         self.altitude = alt
         self.azimuth = azmth
 
-    def getComponents(self):
+    def get_components(self):
         return [('altitude', self.altitude), ('azimuth', self.azimuth)]
 
 # Option 2: OOP interface not implemented
@@ -54,8 +55,8 @@ class HorizontalCoordsBroken(ICoords):
         self.altitude = alt
         self.azimuth = azmth
 
-    ### getComponents() from ICoords is not implemented!
-    ### def getComponents(self):
+    ### get_components() from ICoords is not implemented!
+    ### def get_components(self):
     ###     return [('altitude', self.altitude), (azimuth, self.azimuth)]
 
 
@@ -69,11 +70,11 @@ class Meteor:
         self.__size = s
         self.__coords = c
 
-    def getMass(self):
+    def get_mass(self):
         return self.__mass
         self.__coords = c
 
-    def getCoords(self):
+    def get_coords(self):
         return self.__coords
 
 
@@ -81,19 +82,19 @@ if __name__ == "__main__":
     print("Interfaces in Python.")
 
     m1 = Meteor(10, 11, HorizontalCoords(111, 222))
-    print(m1.getMass())
-    print(m1.getCoords().altitude)
-    print(m1.getCoords().azimuth)
-    print(m1.getCoords().getComponents())
+    print(m1.get_mass())
+    print(m1.get_coords().altitude)
+    print(m1.get_coords().azimuth)
+    print(m1.get_coords().get_components())                              # Law of Demetra is violated!
 
     try:
         m2 = Meteor(10, 11, HorizontalCoordsBroken(111, 222))
-        print(m2.getCoords().getComponents())
+        print(m2.get_coords().get_components())                          # Law of Demetra is violated!
     except Exception:
         print("Exception got on accessing components.")
 
     m3 = Meteor(10, 11, SphericalCoords(10, 12, 33))
-    print(m3.getCoords().getComponents())
+    print(m3.get_coords().get_components())
 
     print("Printing coords using dynamic polymorphism.")
 
@@ -103,4 +104,4 @@ if __name__ == "__main__":
                  ]
 
     for coord in coordsList:
-        print(coord.getComponents())
+        print(coord.get_components())
