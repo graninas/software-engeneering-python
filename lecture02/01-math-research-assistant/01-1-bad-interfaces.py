@@ -13,13 +13,10 @@ import random
 import requests
 
 class Natural():
-    def __init__(self):
-        pass
 
     def get_name(self):
         return "Natural number"
 
-    """ A popular descripiton. """
     def get_description(self):
         return "Natural is an integer number between 0 and infinity."
 
@@ -46,13 +43,10 @@ class Natural():
 ### ------------------------------------------------------------------------
 
 class Prime():
-    def __init__(self):
-        pass
 
     def get_name(self):
         return "Prime number"
 
-    """ A popular descripiton. """
     def get_description(self):
         return """A prime number (or a prime) is a natural number greater
 than 1 that cannot be formed by multiplying two smaller natural numbers."""
@@ -82,35 +76,32 @@ than 1 that cannot be formed by multiplying two smaller natural numbers."""
 ### ------------------------------------------------------------------------
 
 class Number:
-        def __init__(self):
-            pass
 
-        def get_name(self):
-            return "Number"
+    def get_name(self):
+        return "Number"
 
-        """ A popular descripiton. """
-        def get_description(self):
-            return "A number is a mathematical object used to count, measure, and label."
+    def get_description(self):
+        return "A number is a mathematical object used to count, measure, and label."
 
-        ### Redundancy: get_sample, get_random_sample
-        ### Strange method with strange result.
-        def get_sample(self):
-            return 7;
+    ### Redundancy: get_sample, get_random_sample
+    ### Strange method with strange result.
+    def get_sample(self):
+        return 7;
 
-        def get_random_sample(self):
-            return random.randrange(0, 100)
+    def get_random_sample(self):
+        return random.randrange(0, 100)
 
-        ### Redundancy: get_wikipedia_link, get_wikipedia_page
-        ### Invalid responsibility (why it knows about Wikipedia?)
-        def get_wikipedia_link(self):
-            return "https://en.wikipedia.org/wiki/Number"
+    ### Redundancy: get_wikipedia_link, get_wikipedia_page
+    ### Invalid responsibility (why it knows about Wikipedia?)
+    def get_wikipedia_link(self):
+        return "https://en.wikipedia.org/wiki/Number"
 
-        ### Invalid responsibility (the definition class should not interact with the internet)
-        ### Invalid responsibility (why it knows about Wikipedia?)
-        ### Duplicated code across classes
-        def get_wikipedia_page(self):
-            r = requests.get(self.get_wikipedia_link())
-            return r.content
+    ### Invalid responsibility (the definition class should not interact with the internet)
+    ### Invalid responsibility (why it knows about Wikipedia?)
+    ### Duplicated code across classes
+    def get_wikipedia_page(self):
+        r = requests.get(self.get_wikipedia_link())
+        return r.content
 
 
 if __name__ == "__main__":
@@ -121,6 +112,8 @@ if __name__ == "__main__":
     print(nat.get_sample())
     print(nat.get_random_sample())
     print(nat.get_wikipedia_link())
+
+    ### Heavy operation
     # print(nat.get_wikipedia_page())
 
     prime = Prime()
@@ -128,6 +121,8 @@ if __name__ == "__main__":
     print(prime.get_sample())
     print(prime.get_random_sample())
     print(prime.get_wikipedia_link())
+
+    ### Heavy operation
     # print(prime.get_wikipedia_page())
 
     num = Number()
@@ -135,4 +130,6 @@ if __name__ == "__main__":
     print(num.get_sample())
     print(num.get_random_sample())
     print(num.get_wikipedia_link())
+
+    ### Heavy operation
     # print(num.get_wikipedia_page())

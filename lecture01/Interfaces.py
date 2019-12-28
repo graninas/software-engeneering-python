@@ -17,13 +17,11 @@ class ICoords:
         raise NotImplementedError('ICoords::get_components() not implemented')
 
 ## Option 3: Abstract base class with ABCMeta & abstractmethod() approach
-# import abc
-# from abc import ABCMeta
+# from abc import *
 #
 # class CoordsBase(metaclass = ABCMeta):
 #     @abstractmethod
-#     def get_components(self):
-#         raise NotImplementedError('get_components() not implemented')
+#     def get_components(self): pass
 
 ## ------------------------------------------------------------------------- ##
 # Option 1: Duck-typed interface implemented
