@@ -1,5 +1,5 @@
 ### Lecture 2. Inversion of Control
-### 01-3. Even Better Interfaces
+### 01-3. Math Knowledge Base
 
 import sys
 import random
@@ -90,7 +90,7 @@ than 1 that cannot be formed by multiplying two smaller natural numbers."""
 
 ### ------------------------------------------------------------------------
 
-### Uses MathObject as interface.
+### Uses MathObject as interface (IoC principle)
 ### No error processing.
 ### No validation.
 ### Method returns None on case of absent tag.
@@ -110,8 +110,13 @@ class ResourceDownloader():
             return r.content
 
         return None
+
 ### ------------------------------------------------------------------------
 
+
+
+
+### ------------------------------------------------------------------------
 
 if __name__ == "__main__":
     print("Math Research Assistant")
