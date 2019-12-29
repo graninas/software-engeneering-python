@@ -1,24 +1,29 @@
 ### Lecture 2. Inversion of Control
-### 01-2. Better Interfaces
+### 01-3. Math Knowledge Base
 
 import sys
 import random
 from abc import *
+from enum import Enum
 
 import requests
 
+"""Represents an abstract math concept."""
 class MathObject(metaclass = ABCMeta):
 
+    """Returns a name."""
     @abstractmethod
     def get_name(self): pass
 
+    """Returns a short description."""
     @abstractmethod
     def get_description(self): pass
 
-    ### Invalid responsibility (why it knows about Wikipedia?)
-    ### Invalid design: what about other langauges, other resources?
+    """Returns a dictionary of resources:
+    dict<ResourceTag, ResourceUrl>
+    """
     @abstractmethod
-    def get_wikipedia_link(): pass
+    def get_resources(): pass
 
 ### ------------------------------------------------------------------------
 
@@ -26,6 +31,11 @@ class NumberBase(MathObject, metaclass = ABCMeta):
 
     @abstractmethod
     def get_random_sample(): pass
+
+### ------------------------------------------------------------------------
+
+class ResourceTag(Enum):
+     WIKIPEDIA = 1
 
 ### ------------------------------------------------------------------------
 
@@ -40,9 +50,8 @@ class Number(NumberBase):
     def get_random_sample(self):
         return random.randrange(0, 100)
 
-    ### Invalid responsibility (why it knows about Wikipedia?)
-    def get_wikipedia_link(self):
-        return "https://en.wikipedia.org/wiki/Number"
+    def get_resources(self):
+        return dict([(ResourceTag.WIKIPEDIA, "https://en.wikipedia.org/wiki/Number")])
 
 ### ------------------------------------------------------------------------
 
@@ -57,9 +66,8 @@ class Natural(NumberBase):
     def get_random_sample(self):
         return random.randrange(0, 100)
 
-    ### Invalid responsibility (why it knows about Wikipedia?)
-    def get_wikipedia_link(self):
-        return "https://en.wikipedia.org/wiki/Natural_number"
+    def get_resources(self):
+        return dict([(ResourceTag.WIKIPEDIA, "https://en.wikipedia.org/wiki/Natural_number")])
 
 ### ------------------------------------------------------------------------
 
@@ -77,22 +85,31 @@ than 1 that cannot be formed by multiplying two smaller natural numbers."""
                   43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
         return primes[random.randrange(0, 25)]
 
-    ### Invalid responsibility (why it knows about Wikipedia?)
-    def get_wikipedia_link(self):
-        return "https://en.wikipedia.org/wiki/Prime_number"
+    def get_resources(self):
+        return dict([(ResourceTag.WIKIPEDIA, "https://en.wikipedia.org/wiki/Prime_number")])
 
 ### ------------------------------------------------------------------------
 
 ### Uses MathObject as interface.
-class WikipediaDownloader():
+### No error processing.
+### No validation.
+### Method returns None on case of absent tag.
+### Direct downloading (not async).
+"""Resource downloader."""
+class ResourceDownloader():
 
-    def __init__(self, math_object : MathObject):
-        self.__link = math_object.get_wikipedia_link()
+    def __init__(self, math_object : MathObject, resource_tag: ResourceTag):
+        self.__math_object = math_object
+        self.__resource_tag = resource_tag
 
     def download_content(self):
-        r = requests.get(self.__link)
-        return r.content
+        resources = self.__math_object.get_resources()
+        if self.__resource_tag in resources:
+            url = resources[self.__resource_tag]
+            r = requests.get(url)
+            return r.content
 
+        return None
 ### ------------------------------------------------------------------------
 
 
@@ -112,19 +129,24 @@ if __name__ == "__main__":
     print(nat.get_name())
     print(nat.get_description())
     print(nat.get_random_sample())
-    print(nat.get_wikipedia_link())
+    print(nat.get_resources())
 
     prime = Prime()
     print(prime.get_name())
     print(prime.get_description())
     print(prime.get_random_sample())
-    print(prime.get_wikipedia_link())
+    print(prime.get_resources())
 
     num = Number()
     print(num.get_name())
     print(num.get_description())
     print(num.get_random_sample())
-    print(num.get_wikipedia_link())
+    print(num.get_resources())
 
-    wiki_downloader = WikipediaDownloader(prime)
-    print(wiki_downloader.download_content())
+    resource_downloader = ResourceDownloader(prime, ResourceTag.WIKIPEDIA)
+    content = resource_downloader.download_content()
+    if content:
+        #print(content)
+        print("Content found and downloaded.")
+    else:
+        print("No content found for WIKIPEDIA resource.")
