@@ -1,2 +1,14 @@
 Software Engineering in Python
-NSU
+==============================
+**Novosibirsk State University**
+
+
+
+### Requirements
+* Python 3
+* Libraries:
+
+```
+pip3 install requests
+
+```
