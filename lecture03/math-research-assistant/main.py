@@ -8,14 +8,26 @@ from enum import Enum
 
 import math_object
 import resource_downloader
+from services.command import *
+from impl.commands import *
 
-class IUserCommand(metaclass = ABCMeta):
-    @abstractmethod
-    def get_command_tag(self): pass
+def parse_user_input(user_input):
+    norm_cmd = normalize_command(user_input)
+    if norm_cmd in supported_commands:
+        return supported_commands[norm_cmd]
+    return None
 
-class Finish(IUserCommand):
-    def get_command_tag(self):
-        return "finish"
+def eval_command(cmd : IUserCommand, st):
+    def is_invalid_command(cmd : IUserCommand):
+        return cmd == None
+
+    if is_invalid_command(mb_cmd):
+        return (True, st, "Invalid command.")
+
+    return cmd.evaluate(st)
+
+def normalize_command(user_input):
+    return user_input.strip().lower()
 
 def make_commands_dict(cmd_lst):
     cmd_dict = dict()
@@ -25,37 +37,22 @@ def make_commands_dict(cmd_lst):
 
 supported_commands = make_commands_dict(
     [ Finish()
-
+    , Describe()
     ])
 
-def is_finish_command(cmd):
-    return cmd.get_command_tag() == Finish().get_command_tag()
-
-def is_invalid_command(cmd):
-    return cmd == None
-
-def normalize_command(user_input):
-    return user_input.strip().lower()
-
-def parse_user_input(user_input):
-    norm_cmd = normalize_command(user_input)
-    if norm_cmd in supported_commands:
-        return supported_commands[norm_cmd]
-    return None
-
-def eval_command(cmd):
-    pass
 
 if __name__ == "__main__":
     print("Math Research Assistant")
 
-    do_loop = True
-    while do_loop:
-        user_input = input("$> ")
-        mb_cmd = parse_user_input(user_input)
-        if is_invalid_command(mb_cmd):
-            print("Invalid command.")
-        elif is_finish_command(mb_cmd):
-            do_loop = False
-        else:
-            eval_command(mb_cmd)
+    finished = False
+    state = ""
+    message = ""
+    try:
+        while not(finished):
+            user_input = input("$> ")
+            mb_cmd = parse_user_input(user_input)
+            finished, state, message = eval_command(mb_cmd, state)
+            print("New state: " + str(state))
+            if message != "": print(message)
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
