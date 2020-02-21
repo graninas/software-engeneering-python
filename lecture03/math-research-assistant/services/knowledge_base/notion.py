@@ -6,4 +6,5 @@ from enum import Enum
 class INotion(metaclass = ABCMeta):
 
     @abstractmethod
-    def get_name(self): pass
+    def get_name(self) -> str:
+        pass
