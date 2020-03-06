@@ -80,6 +80,8 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - Testability
 - Testing practices
 
+### Part II. Advanced Software Design
+
 5. Design Principles & Patterns
 - SOLID
 - GRASP
@@ -87,8 +89,6 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - KISS
 - DRY
 - Demetra Law, Principle of Least Power (isolation)
-
-### Part II. Advanced Software Design
 
 6. Domain Specific Languages
 - Embedded DSLs
@@ -122,3 +122,31 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - The Circle-Ellipse (or Square-Rectangle) Problem
 - The Diamond Problem
 - Deep inheritance problems
+
+---------------------------------------------------
+
+### Control Questions 1: Interfaces, implementations, Inversion of Control
+
+1. How did you understand what is interface in Software Engineering?
+2. Provide some example of interface in Python.
+3. Design an interface for objects which could report their own description to the console.
+  * Provide 2 implementations of this interface. You are free to choose any business domain for this.
+4. Design another interface `IPrinter` for a subsystem which can output a string to different sources.
+   * Provide 2 implementations of this interface:
+     - Console printer
+     - File printer
+   * Make `file printer` implementation configurable (think about what config it should take).
+5. Rework the interface and the implementations from the 3rd paragraph so that the output source could be defined by the interface from the 4th paragraph.
+
+### Control Questions 2: Layering
+1. What do you think about layering of applications?
+2. Provide a diagram. The following layers should be presented and be properly linked by one-directional arrows:
+  - Business Logic
+  - Implementation
+  - Interfaces
+3. Can you provide a rationale why the layers are related in a such way?
+  
+### Control Questions 3: Code practice
+1. Bring the code of Math Assistant with the functionality we described on the lessons.
+2. List the entities you have in your code: interfaces, implementations, functions, etc.
+3. Arrange these entities on the layering diagram.
