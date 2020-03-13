@@ -90,7 +90,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 
 ### Part II. Advanced Software Design
 
-7. Design Patterns
+6. Design Patterns
 - OOP Design Patterns
 - - Task
 - - Wrapper, Adapter
@@ -102,7 +102,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - ...
 - FP Design Patterns
 
-6. Domain Specific Languages
+7. Domain Specific Languages
 - Embedded DSLs
 - External DSLs (?)
 
