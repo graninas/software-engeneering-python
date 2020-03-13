@@ -80,8 +80,6 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - Testability
 - Testing practices
 
-### Part II. Advanced Software Design
-
 5. Design Principles & Patterns
 - SOLID
 - GRASP
@@ -90,9 +88,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - DRY
 - Demetra Law, Principle of Least Power (isolation)
 
-6. Domain Specific Languages
-- Embedded DSLs
-- External DSLs (?)
+### Part II. Advanced Software Design
 
 7. Design Patterns
 - OOP Design Patterns
@@ -105,6 +101,10 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - - Interpreter
   - ...
 - FP Design Patterns
+
+6. Domain Specific Languages
+- Embedded DSLs
+- External DSLs (?)
 
 8. Error Handling & Resources Management
 - RAII
