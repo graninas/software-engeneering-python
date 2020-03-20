@@ -125,6 +125,29 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 
 ---------------------------------------------------
 
+# Math Assistant 
+
+### Functional Requirements
+* Knowledge Base with math objects which have name and description.
+* Command-line application
+* CLI Commands:
+  - `Finish`: finish the CLI application
+    `finish`
+  - `Describe`: describe a notion from the Knowledge Base
+    `describe <name:str>
+    `describe "Number"`
+  - `Add`: add a notion into the Knowledge Base
+    `add <name:str> <descr:str>`
+    `add "some name" "some description"
+    
+
+
+
+
+---------------------------------------------------
+
+# Control work
+
 ### Control Questions 1: Interfaces, implementations, Inversion of Control
 
 1. How did you understand what is interface in Software Engineering?
