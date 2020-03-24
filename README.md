@@ -145,6 +145,15 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 * Implement the "Labyrinth" game (aka "Terra Incognita").
   - [Labyrinth (Wiki)](https://en.wikipedia.org/wiki/Labyrinth_(paper-and-pencil_game))
   - [Terra Incognita](https://www.thegamecrafter.com/games/terra-incognita)
+* You should use the knowledge obtained during the course.
+* Design the game using:
+  - Interfaces (OOP-like)
+  - Inversion of Control
+  - Dependency Injection
+  - Proper layering
+  - Proper project structure
+  - Diagrams of classes and interaction between classes
+* The code should be extensible enough to support new upcoming requirements (see "Mandatory set of rules" and "Extended set of rules").
 
 ### Functional requirements
 
@@ -186,7 +195,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - "step impossible, monolith"
   - "step executed" (on successfull moving)
 
-##### Extra set of rules
+##### Extended set of rules
 
 * To be defined soon.
 
