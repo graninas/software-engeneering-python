@@ -140,7 +140,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
     `add <name:str> <descr:str>`
     `add "some name" "some description"
     
-# Labyrinth game
+# Labyrinth
 
 * Implement the "Labyrinth" game (aka "Terra Incognita").
   - [Labyrinth (Wiki)](https://en.wikipedia.org/wiki/Labyrinth_(paper-and-pencil_game))
