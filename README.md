@@ -102,15 +102,29 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - ...
 - FP Design Patterns
 
-7. Domain Specific Languages
+7. Domain Specific Languages & Domain Driven Development
+- Domain Driven Development
 - Embedded DSLs
-- External DSLs (?)
+- External DSLs
 
 8. Error Handling & Resources Management
-- RAII
-- Exceptions vs Errors
-- “Let it Crash”
-- Maybe & Either
+- Defensive programming
+- Exceptions and Errors
+  * Exceptions vs Errors
+  * Exception hierarchies
+  * Error domains
+  * nulls vs optionals
+  * Handling techniques
+    - try/catch
+    - Maybe & Either
+    - Continuations
+  * Failure to list of successes
+- The “Let it Crash” philosophy
+- Resource Management
+  * Constructors and destructors
+  * RAII
+  * Handling resources in multithreaded environment
+
 
 9. Data Flow Design
 - Data Flow Diagrams
@@ -125,7 +139,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 
 ---------------------------------------------------
 
-# Math Assistant 
+# Math Assistant
 
 ### Functional Requirements
 * Knowledge Base with math objects which have name and description.
@@ -139,7 +153,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - `Add`: add a notion into the Knowledge Base
     `add <name:str> <descr:str>`
     `add "some name" "some description"
-    
+
 # Labyrinth
 
 * Implement the "Labyrinth" game (aka "Terra Incognita").
@@ -166,7 +180,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - Starting a new game with a predefined labyrinth size: "start <labirynth_size>". Labyrinth size should be not less 4 and not bigger 10.
   - Quiting the current game: "quit" (without saving).
   - Quiting the current game with saving: "save <file_name>" (the game should be saved into a text file).
-* On the start, labyrinth should be randomly generated. 
+* On the start, labyrinth should be randomly generated.
   - Labyrinth consists of cells.
   - A wall can be built between any two neighbouring cells.
   - An outside wall is called monolith.
@@ -223,7 +237,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - Implementation
   - Interfaces
 3. Can you provide a rationale why the layers are related in a such way?
-  
+
 ### Control Questions 3: Code practice
 1. Bring the code of Math Assistant with the functionality we described on the lessons.
 2. List the entities you have in your code: interfaces, implementations, functions, etc.
