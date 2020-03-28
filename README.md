@@ -113,17 +113,19 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   * Exceptions vs Errors
   * Exception hierarchies
   * Error domains
-  * nulls vs optionals
+  * nulls vs optionals vs None
   * Handling techniques
     - try/catch
     - Maybe & Either
     - Continuations
+    - Make invalid cases unrepresentable
   * Failure to list of successes
 - The “Let it Crash” philosophy
 - Resource Management
   * Constructors and destructors
   * RAII
   * Handling resources in multithreaded environment
+- Bugs are not errors and exceptions
 
 
 9. Data Flow Design
@@ -177,12 +179,12 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - Game is controlled by text commands.
   - Initially, the player can't see the labyrinth. The player should explore the labyrinth on its own.
 * User commands:
-  - Starting a new game with a predefined labyrinth size: "start <labirynth_size>". Labyrinth size should be not less 4 and not bigger 10.
+  - Starting a new game with a predefined labyrinth size: "start <labyrinth_size>". Labyrinth size should be not less 4 and not bigger 10.
   - Quiting the current game: "quit" (without saving).
   - Quiting the current game with saving: "save <file_name>" (the game should be saved into a text file).
 * On the start, labyrinth should be randomly generated.
   - Labyrinth consists of cells.
-  - A wall can be built between any two neighbouring cells.
+  - A wall can be built between any two neighbour cells.
   - An outside wall is called monolith.
   - There should be no inaccessible cells.
   - There should be one exit randomly dislocated in the monolith wall.
@@ -207,7 +209,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
   - "step executed, wormhole"
   - "step executed, treasure"
   - "step impossible, monolith"
-  - "step executed" (on successfull moving)
+  - "step executed" (on successful moving)
 
 ##### Extended set of rules
 
