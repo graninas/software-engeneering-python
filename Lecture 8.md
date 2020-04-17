@@ -1,5 +1,5 @@
-8. Error Handling & Resources Management
-----------------------------------------
+8. Error Handling
+-----------------
 
 Error handling
 
@@ -34,7 +34,7 @@ def withdraw (user_account, bankAPI, amount):
       try:
         result = bankAPI.withdraw(conn, amount)
 
-        safe_call(labmda: result.validate(), lambda: print('Invalid result'))
+        safe_call(lambda: result.validate(), lambda: print('Invalid result'))
 
         if (result != None):
           result.is_valid()
@@ -145,3 +145,5 @@ def withdraw_many (user_account, bankAPI, amount1, amount2, amount3):
 
 def do_something():
   list = withdraw_many(...)
+
+- "Let it crash"
