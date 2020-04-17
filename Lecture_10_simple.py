@@ -2,7 +2,6 @@
 # --------------------
 
 
-
 class Sink:
     def __init__(self, initial):
         self._initial = initial
@@ -44,11 +43,6 @@ class ListSource:
         self._next = Pipe(self)
         return self._next
 
-    def drop(self, n):
-        self._drop_n = n
-        self._next = Pipe(self)
-        return self._next
-
     def __call__(self, list_arg):
         print('Flow started.')
 
@@ -68,8 +62,6 @@ def runFlow(flow, init_arg):
 
 
 flow1 = ListSource().take(3).for_each(lambda x: print(x)).end()
-flow2 = ListSource().drop(12).take(3).for_each(lambda x: print(x)).end()
 
 
 runFlow(flow1, [1,2,3,4,5])
-runFlow(flow2, [1,2,3,4,5])
