@@ -134,6 +134,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - Data Flow Style
 - OOP-based Data Flow Design
 - FP-based Data Flow Design
+- Stream and Reactive programming
 
 11. Appendix. OOP problems
 - The Circle-Ellipse (or Square-Rectangle) Problem
