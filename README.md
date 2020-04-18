@@ -129,6 +129,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - Handling resources in multithreaded environment
 
 10. Data Flow Design
+- Fluent Interface
 - Data Flow Diagrams
 - Data Flow Style
 - OOP-based Data Flow Design
