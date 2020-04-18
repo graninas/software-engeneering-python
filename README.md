@@ -107,7 +107,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - Embedded DSLs
 - External DSLs
 
-8. Error Handling & Resources Management
+8. Error Handling
 - Defensive programming
 - Exceptions and Errors
   * Exceptions vs Errors
@@ -121,20 +121,20 @@ In this course, you’ll learn the Software Engineering and Software Design disc
     - Make invalid cases unrepresentable
   * Failure to list of successes
 - The “Let it Crash” philosophy
-- Resource Management
-  * Constructors and destructors
-  * RAII
-  * Handling resources in multithreaded environment
 - Bugs are not errors and exceptions
 
+9. Resources Management
+- Constructors and destructors
+- RAII
+- Handling resources in multithreaded environment
 
-9. Data Flow Design
+10. Data Flow Design
 - Data Flow Diagrams
 - Data Flow Style
 - OOP-based Data Flow Design
 - FP-based Data Flow Design
 
-10. Appendix. OOP problems
+11. Appendix. OOP problems
 - The Circle-Ellipse (or Square-Rectangle) Problem
 - The Diamond Problem
 - Deep inheritance problems
@@ -214,6 +214,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 ##### Extended set of rules
 
 * To be defined soon.
+
 
 ---------------------------------------------------
 
