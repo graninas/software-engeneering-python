@@ -213,8 +213,20 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 
 ##### Extended set of rules
 
-* To be defined soon.
-
+* Game objects:
+  - River. Has source and end. Several cells arranged in a chain which cannot intersect itself.
+    Entering a river moves the player 2 cells down a stream (maximum).
+    Skipping a turn triggers this moving again.
+    River and wormholes cannot share the same cell.
+  - Bear. Bear is like a player but moves randomly and is NPC.
+    River and wormholes affect bear as well.
+    Once bear and player step on the same cell, player becomes damaged.
+    When damaged, the player should be also moved 1 cell away from the bear towards any passable direction.
+    (If this is not possible, player stays where he was)
+    Damaging the player second time makes him dead.
+  - Map. When the player has a map he can use the "map" command to see the whole labyrinth
+    (including treasure, bear, river, wormholes).
+    Using this command behaves like skipping a turn (all the effects should be applied.)
 
 ---------------------------------------------------
 
