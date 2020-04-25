@@ -120,7 +120,7 @@ def fact(nat:Natural):
 - Make invalid states unrepresentable.
 - Maybe (optional in C++, Some in Scala...)                 - monads
 - Either (expected in C++, Result in Scala, Result C#...)   - monads
-- None in Python analogue of null
+- None in Python is analogue of null
 
 - Turn a failure into a success list
 def withdraw_many (user_account, bankAPI, amount1, amount2, amount3):
