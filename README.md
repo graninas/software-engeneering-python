@@ -156,7 +156,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
     `describe "Number"`
   - `Add`: add a notion into the Knowledge Base
     `add <name:str> <descr:str>`
-    `add "some name" "some description"
+    `add "some name" "some description"`
 
 # Labyrinth
 
