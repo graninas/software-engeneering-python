@@ -80,7 +80,7 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - Testability
 - Testing practices
 
-5. Design Principles & Patterns
+5. Design Principles
 - SOLID
 - GRASP
 - YAGNI
@@ -140,6 +140,8 @@ In this course, you’ll learn the Software Engineering and Software Design disc
 - The Circle-Ellipse (or Square-Rectangle) Problem
 - The Diamond Problem
 - Deep inheritance problems
+
+12. Design Patterns II
 
 ---------------------------------------------------
 
